@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Download Files">
+        <div class="slds-m-around_medium custom-container">
+            <div class="checkbox-group">
+                <lightning-input type="checkbox" label="15 characters" value="15" onchange={handleCheckboxChange}></lightning-input>
+                <lightning-input type="checkbox" label="18 characters" value="18" onchange={handleCheckboxChange}></lightning-input>
+            </div>
+
+        <template if:true={showInput}>
+            <lightning-input
+                class="custom-input"
+                label="Enter IDs below: "
+                value={inputValue}   
+                onchange={handleInputChange}
+                placeholder="select 15 or 18 characters for the '/' to show automatically"
+            ></lightning-input>
+        </template>
+
+            <!-- Download Button -->
+            <template if:true={showDownloadButton}>
+                <lightning-button
+                    label="Download"
+                    class="slds-m-top_medium custom-button"
+                    onclick={handleDownload}
+                ></lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>
